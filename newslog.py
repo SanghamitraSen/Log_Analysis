@@ -47,8 +47,8 @@ def connect(database_name="news"):
         db = psycopg2.connect("dbname={}".format(database_name))
         cursor = db.cursor()
         return db, cursor
-    except:
-        print ("Could not connect to the database")
+    except Exception:
+        print("Could not connect to the database")
 
 
 # Function to return query results
@@ -62,19 +62,19 @@ def get_query(query):
 # Function to display query results of 1 & 2
 def display_1_2(q_results):
     # displaying title
-    print ("\n", q_results[1])
+    print("\n", q_results[1])
     # displaying actual result
     for i, results in enumerate(q_results[0]):
-        print ("   ", i+1, ":", results[0], " :- ", str(results[1])+" views")
+        print("   ", i+1, ":", results[0], " :- ", str(results[1])+" views")
 
 
 # Function to display query result of 3
 def display_3(q_result):
     # displaying title
-    print ("\n", q_result[1])
+    print("\n", q_result[1])
     # displaying actual result
     for results in q_result[0]:
-        print ("   ", results[0], ":-", str(results[1])+"% errors\n")
+        print("   ", results[0], ":-", str(results[1])+"% errors\n")
 
 
 if __name__ == '__main__':
